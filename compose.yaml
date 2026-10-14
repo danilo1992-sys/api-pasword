@@ -1,0 +1,11 @@
+services:
+  api:
+    build: .
+    image: api-pasword:latest
+    container_name: api-pasword
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    # Si querés que corra detras de otro proxy/compose, comentá ports y usá:
+    # expose:
+    #   - "8000"

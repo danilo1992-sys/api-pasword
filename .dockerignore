@@ -1,0 +1,19 @@
+# VCS / IDE
+.git
+.gitignore
+
+# Entornos y artefactos de Python
+.venv
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Docker (el build no necesita estos)
+Dockerfile
+compose.yaml
+.dockerignore
+
+# NO ignorar README.md ni pyproject.toml: uv_build los necesita para buildhear
