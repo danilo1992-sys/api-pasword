@@ -7,17 +7,20 @@ from .routes.routes import router as password
 
 app = FastAPI()
 
-# Origenes permitidos: dev (vite) y preview/vite build servidos en local.
+# Origenes permitidos: dev/preview locales y los despliegues en Render
+# (el front está en https://frontend-password.onrender.com).
 FRONTEND_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
     "http://localhost:4173",
     "http://127.0.0.1:4173",
+    "https://frontend-password.onrender.com",
 ]
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=FRONTEND_ORIGINS,
+    allow_origin_regex=r"https://.*\.onrender\.com",
     allow_methods=["GET", "POST"],
     allow_headers=["*"],
 )
