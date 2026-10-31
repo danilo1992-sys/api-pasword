@@ -3,7 +3,8 @@ import secrets
 import string
 
 from fastapi import APIRouter, Query
-from pydantic import BaseModel, Field
+
+from ..models.model import CheckRequest
 
 router = APIRouter(prefix="/router")
 
@@ -15,10 +16,6 @@ NIVELES = {
     1: "Muy debil",
     0: "Inaceptable",
 }
-
-
-class CheckRequest(BaseModel):
-    password: str = Field(..., max_length=512)
 
 
 @router.get("/generate")

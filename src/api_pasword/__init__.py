@@ -3,6 +3,7 @@ import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from .routes.phishing import pishing
 from .routes.routes import router as password
 
 app = FastAPI()
@@ -26,6 +27,7 @@ app.add_middleware(
 )
 
 app.include_router(password)
+app.include_router(pishing)
 
 @app.get("/")
 def home():

@@ -7,6 +7,7 @@ API de generación y evaluación de contraseñas (FastAPI + uv).
 | GET | `/` | Health/Hello |
 | GET | `/router/generate?length=16` | Genera una contraseña (`1..256`) |
 | POST | `/router/check` | Evalúa una contraseña: `{"password": "..."}` |
+| POST | `/phishing/check` | Detecta caracteres sospechosos: `{"password": "..."}` o `{"text": "..."}` |
 
 ---
 
@@ -32,6 +33,9 @@ curl 'http://localhost:8000/router/generate?length=12'
 curl -X POST http://localhost:8000/router/check \
   -H 'content-type: application/json' \
   -d '{"password":"Abcdef1!"}'
+curl -X POST http://localhost:8000/phishing/check \
+  -H 'content-type: application/json' \
+  -d '{"password":"Рaypal"}'
 ```
 
 ### Con Docker Compose
